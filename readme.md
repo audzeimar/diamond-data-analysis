@@ -30,6 +30,8 @@ Model wykorzystuje zarówno cechy numeryczne (masa, cena), jak i kategorialne (k
 ├── WYNIKI_DO_RAPORTU.txt     # Automatycznie generowany plik tekstowy z wynikami eksperymentów
 ├── requirements.txt          # Lista wymaganych bibliotek
 └── README.md                 # Dokumentacja projektu
+```
+
 ## Instalacja
 Zainstaluj wymagane biblioteki:
 pip install -r requirements.txt
