@@ -34,10 +34,10 @@ Clone the repository and install the required dependencies using pip: pip instal
 ## Usage
 To run the specific parts of the project, execute the corresponding main scripts from your terminal:
 
-# To run the Machine Learning and Statistical Analysis phase (Part 2):
+### To run the Machine Learning and Statistical Analysis phase (Part 2):
 python main_lista2.py
 
-# To run the initial Rule-Based System phase (Part 1):
+### To run the initial Rule-Based System phase (Part 1):
 python main.py
 
 ## Autor
