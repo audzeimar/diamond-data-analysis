@@ -15,23 +15,21 @@ Model wykorzystuje zarówno cechy numeryczne (masa, cena), jak i kategorialne (k
 
 ## Struktura projektu
 
-metody_s_i_d/
-│
+## Struktura projektu
+
+```text
 ├── src/
 │   ├── data_loader.py       # Pobieranie i przygotowanie zbioru danych
-│   ├── eda.py               # Generowanie wykresów (EDA, ważne cechy, Bias-Variance)
-│   ├── evaluation.py        # Funkcje metryk (MSE, Accuracy, F1-Score)
-│   └── models_scratch.py    # Autorskie implementacje algorytmów (NumPy)
-│
+│   ├── eda.py                # Generowanie wykresów (EDA, ważne cechy, Bias-Variance)
+│   ├── evaluation.py         # Funkcje metryk (MSE, Accuracy, F1-Score)
+│   └── models_scratch.py     # Autorskie implementacje algorytmów (NumPy)
 ├── results/
-│   └── plots/               # Tu automatycznie zapisują się wygenerowane wykresy
-│
-├── main_lista2.py           # Główny skrypt dla Części 2 (Machine Learning)
-├── main.py                  # Skrypt archiwalny z Części 1 (Modele regułowe)
-├── WYNIKI_DO_RAPORTU.txt    # Automatycznie generowany plik tekstowy z wynikami eksperymentów
-├── requirements.txt         # Lista wymaganych bibliotek
-└── README.md                # Dokumentacja projektu
-
+│   └── plots/                # Tu automatycznie zapisują się wygenerowane wykresy
+├── main_lista2.py            # Główny skrypt dla Części 2 (Machine Learning)
+├── main.py                   # Skrypt archiwalny z Części 1 (Modele regułowe)
+├── WYNIKI_DO_RAPORTU.txt     # Automatycznie generowany plik tekstowy z wynikami eksperymentów
+├── requirements.txt          # Lista wymaganych bibliotek
+└── README.md                 # Dokumentacja projektu
 ## Instalacja
 Zainstaluj wymagane biblioteki:
 pip install -r requirements.txt
