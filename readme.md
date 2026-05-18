@@ -1,21 +1,17 @@
-# System wspomagania decyzji w wycenie diamentów
+# Diamond Valuation Decision Support System
 
-## Opis projektu
-Projekt polega na analizie zbioru danych dotyczącego diamentów oraz stworzeniu prostego systemu wspomagania decyzji opartego na regułach.
+## Project Overview
+This project focuses on the exploratory data analysis (EDA) of a diamond dataset and the development of a decision support system for diamond valuation. The model utilizes both numerical features (carat weight, price) and categorical features (color, cut quality, clarity) to estimate values and make data-driven classifications.
 
-Model wykorzystuje zarówno cechy numeryczne (masa, cena), jak i kategorialne (kolor, jakość szlifu, przejrzystość).
+**The project is structured into two main phases:**
+* **Part 1: Exploratory Data Analysis & Rule-Based Modeling** Initial data exploration and the construction of a manual, rule-based system (if/else logic) for basic classification and simple regression tasks.
+* **Part 2: Machine Learning & Statistical Modeling** Automation of the decision-making process using classic machine learning algorithms. This phase includes:
+  * **Decision Trees:** Implementation with a focus on Information Gain verification.
+  * **Linear Regression:** Implemented entirely from scratch using **NumPy** (covering both the analytical Ordinary Least Squares solution and iterative Gradient Descent) and benchmarked against the `scikit-learn` library.
+  * **Feature Scaling Analysis:** Evaluating the impact of standardization (`StandardScaler`) on the interpretability of model weights.
+  * **Bias-Variance Tradeoff:** In-depth statistical analysis of model complexity using high-degree polynomials, including testing for extrapolation errors (the "Black Swan" problem).
 
-**Projekt został podzielony na dwie części:**
-* **Część 1:** Analiza eksploracyjna danych (EDA) oraz budowa manualnego systemu regułowego (if/else) do klasyfikacji i prostej regresji.
-* **Część 2 (Machine Learning):** Automatyzacja systemu z wykorzystaniem klasycznych algorytmów uczenia maszynowego. Obejmuje m.in.:
-  - **Drzewa Decyzyjne** (z weryfikacją zysku informacyjnego / Information Gain).
-  - **Regresję Liniową** zaimplementowaną od zera za pomocą biblioteki NumPy (Rozwiązanie analityczne MNK oraz iteracyjne Spadek Gradientu) i porównaną z modelem `scikit-learn`.
-  - Badanie wpływu standaryzacji (`StandardScaler`) na interpretację wag modelu.
-  - Analizę zjawiska **Bias-Variance Tradeoff** (kompromisu obciążenie-wariancja) oraz testy błędu ekstrapolacji (**Problem "Czarnego Łabędzia"**) przy pomocy wielomianów wysokiego stopnia.
-
-## Struktura projektu
-
-## Struktura projektu
+## Project Structure
 
 ```text
 ├── src/
@@ -32,13 +28,17 @@ Model wykorzystuje zarówno cechy numeryczne (masa, cena), jak i kategorialne (k
 └── README.md                 # Dokumentacja projektu
 ```
 
-## Instalacja
-Zainstaluj wymagane biblioteki:
-pip install -r requirements.txt
+## Installation
+Clone the repository and install the required dependencies using pip: pip install -r requirements.txt
 
-## Uruchomienie
-Aby uruchomić projekt, wpisz:
-python main.py / main_lista2.py
+## Usage
+To run the specific parts of the project, execute the corresponding main scripts from your terminal:
+
+# To run the Machine Learning and Statistical Analysis phase (Part 2):
+python main_lista2.py
+
+# To run the initial Rule-Based System phase (Part 1):
+python main.py
 
 ## Autor
 Maryia Audzei
