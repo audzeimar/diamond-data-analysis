@@ -1,0 +1,54 @@
+Drzewo decyzyjne - Klasyfikacja
+Accuracy na zbiorze testowym: 0.9565
+F1-Score na zbiorze testowym: 0.9219
+
+>>> Interpretacja drzewa i ważność cech
+Fragment struktury reguł drzewa:
+|--- carat <= 1.00
+|   |--- y <= 6.15
+|   |   |--- y <= 6.09
+|   |   |   |--- truncated branch of depth 3
+|   |   |--- y >  6.09
+|   |   |   |--- truncated branch of depth 3
+|   |--- y >  6.15
+|   |   |--- clarity_VS1 <= 0.50
+|   |   |   |--- truncated branch of depth 3
+|   |   |--- clarity_VS1 >  0.50
+|   |   |   |--- truncated branch of depth 3
+|--- carat >  1.00
+|   |--- y <= 6.76
+|   |   |--- clarity_SI2 <= 0.50
+|   |   |   |--- truncated branch of depth 3
+|   |   |--- clarity_SI2 >  0.50
+|   |   |   |--- truncated branch of depth 3
+|   |--- y >  6.76
+|   |   |--- y <= 6.96
+|   |   |   |--- truncated branch of depth 3
+|   |   |--- y >  6.96
+|   |   |   |--- truncated branch of depth 3
+
+Ręczny Information Gain dla 'carat' przy progu 1.0: 0.4846
+Feature Importance ze scikit-learn dla 'carat': 0.7772
+
+Własna implementacja regresji liniowej
+Porównanie wyuczonych wag (intercept + waga 'carat'):
+Analitycznie (NumPy):     W0=3939.49, W1(carat)=5339.60
+Spadek Gradientu (NumPy): W0=3939.49, W1(carat)=5278.01
+Scikit-Learn (Gotowiec):  W0=3939.49, W1(carat)=5339.60
+
+Błąd MSE (Moja Implementacja Analityczna): 1,288,705.48
+Błąd MSE (Scikit-Learn LinearRegression):  1,288,705.48
+
+Interpretacja regresji przed i po skalowaniu
+Waga dla cechy 'carat' BEZ SKALOWANIA: 11280.78 USD
+Waga dla cechy 'carat' PO SKALOWANIU:  5339.60 USD
+(Skalowanie pozwala na sprawiedliwe porównywanie wag między różnymi cechami!)
+
+Analiza Bias-Variance Tradeoff oraz problem Czarnego Łabędzia
+Generowanie modeli od stopnia 1 do 12 (Trwa obliczanie...)
+>> Wykres krzywych złożoności zapisany.
+
+Eksperyment: Przewidywanie ceny diamentu o ogromnej masie 15 Karatów
+Predykcja (Zwykły model Liniowy):       114,271.75 USD
+Predykcja (Przeuczony Wielomian st. 11): 1,493,105,237,490.29 USD
+Wniosek: Przeuczony model traci zdolność generalizacji (Czarne Łabędzie!).
