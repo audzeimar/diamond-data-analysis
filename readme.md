@@ -1,44 +1,58 @@
 # Diamond Valuation Decision Support System
 
 ## Project Overview
-This project focuses on the exploratory data analysis (EDA) of a diamond dataset and the development of a decision support system for diamond valuation. The model utilizes both numerical features (carat weight, price) and categorical features (color, cut quality, clarity) to estimate values and make data-driven classifications.
+This project focuses on a comprehensive analysis of a diamond dataset and the development of an advanced decision support system for market price estimation and luxury product classification.
 
-**The project is structured into two main phases:**
-* **Part 1: Exploratory Data Analysis & Rule-Based Modeling** Initial data exploration and the construction of a manual, rule-based system (if/else logic) for basic classification and simple regression tasks.
-* **Part 2: Machine Learning & Statistical Modeling** Automation of the decision-making process using classic machine learning algorithms. This phase includes:
-  * **Decision Trees:** Implementation with a focus on Information Gain verification.
-  * **Linear Regression:** Implemented entirely from scratch using **NumPy** (covering both the analytical Ordinary Least Squares solution and iterative Gradient Descent) and benchmarked against the `scikit-learn` library.
-  * **Feature Scaling Analysis:** Evaluating the impact of standardization (`StandardScaler`) on the interpretability of model weights.
-  * **Bias-Variance Tradeoff:** In-depth statistical analysis of model complexity using high-degree polynomials, including testing for extrapolation errors (the "Black Swan" problem).
-
+The project evolves from simple expert rules to state-of-the-art machine learning architectures, divided into three main phases:
+* **Part 1 (EDA & Manual Rules):** Exploratory Data Analysis (EDA), distribution visualization, and the construction of a manual threshold-based (if/else) system for classification and step regression.
+* **Part 2 (Classical Machine Learning):** Process automation using Decision Trees (`scikit-learn`) alongside a custom-built Information Gain function. It includes building Linear Regression models from scratch (Analytical OLS and iterative Gradient Descent), analyzing the impact of feature standardization, and exploring the *Bias-Variance Tradeoff* along with extrapolation vulnerabilities (the "Black Swan" problem).
+* **Part 3 (Regularization & Ensemble Learning):** Implementation of mathematical defense mechanisms against overfitting and the integration of models into advanced ensembles:
+  - **Regularization:** Custom linear models with Lasso (L1) and Ridge (L2) penalties via gradient descent, plus structural tree optimization (`min_samples_leaf`) to find the *Sweet Spot*.
+  - **Bagging:** A custom ensemble classifier built on balanced sampling with replacement (Bootstrap) and twardym głosowaniu (*Majority Voting*).
+  - **Stacking:** A cascading heterogeneous committee (Decision Tree, Logistic Regression, KNN) evaluated by a meta-model, utilizing *Cross-Validation Predict* to prevent Data Leakage.
+  - **Boosting:** A custom *Gradient Boosting Machine* that sequentially trains shallow trees on residual values.
+  - **Mixture of Experts (MoE):** An advanced network featuring a dynamic gate (KMeans clustering + Random Forest) that routes data records to narrow-domain regression experts.
+    
 ## Project Structure
 
 ```text
+metody_s_i_d/
+│
 ├── src/
-│   ├── data_loader.py       # Pobieranie i przygotowanie zbioru danych
-│   ├── eda.py                # Generowanie wykresów (EDA, ważne cechy, Bias-Variance)
-│   ├── evaluation.py         # Funkcje metryk (MSE, Accuracy, F1-Score)
-│   └── models_scratch.py     # Autorskie implementacje algorytmów (NumPy)
+│   ├── data_loader.py       # Dynamic dataset fetching (Seaborn/Plotnine)
+│   ├── eda.py               # Visualization module (EDA, Bias-Variance, L1/L2 weights, Sweet Spot)
+│   ├── evaluation.py        # Metrics calculation functions (MSE, MAE, Accuracy, F1-Score)
+│   ├── model.py             # Manual rule-based models from Part 1
+│   └── models_scratch.py    # Custom from-scratch implementations (Entropy, OLS, GD with L1/L2, Bagging, GBM, MoE)
+│
 ├── results/
-│   └── plots/                # Tu automatycznie zapisują się wygenerowane wykresy
-├── main_lista2.py            # Główny skrypt dla Części 2 (Machine Learning)
-├── main.py                   # Skrypt archiwalny z Części 1 (Modele regułowe)
-├── WYNIKI_DO_RAPORTU.txt     # Automatycznie generowany plik tekstowy z wynikami eksperymentów
-├── requirements.txt          # Lista wymaganych bibliotek
-└── README.md                 # Dokumentacja projektu
+│   └── plots/               # Directory for automatically generated plot images (.png)
+│
+├── main.py                  # Execution script for Part 1 (EDA and simple rules)
+├── main_l2.py               # Execution script for Part 2 (Classical ML and Bias-Variance)
+├── main_l3.py               # Execution script for Part 3 (Ensemble models and Regularization)
+├── WYNIKI_DO_RAPORTU.txt    # Numerical metrics log generated by Part 2 models
+├── requirements.txt         # Project dependencies
+└── README.md                # System documentation
 ```
 
 ## Installation
-Clone the repository and install the required dependencies using pip: pip install -r requirements.txt
+Before running any module, install the required environment packages using `pip`:
+```bash
+pip install -r requirements.txt
+```
 
-## Usage
-To run the specific parts of the project, execute the corresponding main scripts from your terminal:
-
-### To run the Machine Learning and Statistical Analysis phase (Part 2):
-python main_lista2.py
-
-### To run the initial Rule-Based System phase (Part 1):
+## Running the Project
+### 1. To generate baseline statistical plots and test the manual rule-based system from Part 1, run:
 python main.py
 
-## Autor
+### 2. To run tree experiments, compare the custom regression with scikit-learn, and execute the anomaly analysis from Part 2, run:
+python main_l2.py
+
+### 3. To launch the full ensemble learning environment, calculate L1/L2 regularization weights, and test Stacking/Boosting structures and the MoE network from Part 3, run:
+python main_l3.py
+
+All resulting plots and learning curves will be automatically saved in the dedicated results/plots/ directory.
+
+## Author
 Maryia Audzei
