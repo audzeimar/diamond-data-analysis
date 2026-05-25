@@ -180,3 +180,41 @@ def plot_bias_variance_curve(degrees, train_errors, test_errors):
     plt.title("Analiza Bias-Variance Tradeoff")
     plt.legend()
     _finalize_plot(PLOTS_DIR / 'bias_variance_curve.png')
+
+# --------------------- Lista 3 --------------------
+def plot_regularization_weights(w_unreg, w_l1, w_l2, features):
+    # Pokazuje wyzerowanie wag przez Lasso i zmniejszenie przez Ridge
+    _setup_style()
+    x = np.arange(len(features))
+    width = 0.25
+
+    fig, ax = plt.subplots(figsize=(12, 6))
+    ax.bar(x - width, w_unreg, width, label='Brak regularyzacji', color='gray', alpha=0.6)
+    ax.bar(x, w_l1, width, label='Lasso (L1) - Zeruje wagi', color='#E76F51')
+    ax.bar(x + width, w_l2, width, label='Ridge (L2) - Zmniejsza wagi', color='#2A9D8F')
+
+    ax.set_ylabel('Wartość Wagi')
+    ax.set_title('Wpływ Regularyzacji na Wagi Modelu Liniowego')
+    ax.set_xticks(x)
+    ax.set_xticklabels(features, rotation=45, ha='right')
+    ax.legend()
+
+    plt.tight_layout()
+    plt.savefig(PLOTS_DIR / 'regularization_weights.png')
+    plt.close()
+
+def plot_tree_regularization(param_values, train_scores, test_scores, param_name):
+    # Wykres obrazujący sweet-spot regularyzacji strukturalnej drzewa
+    _setup_style()
+    plt.figure(figsize=(9, 5))
+    plt.plot(param_values, train_scores, label='Zbiór treningowy', marker='o', color='blue')
+    plt.plot(param_values, test_scores, label='Zbiór testowy', marker='x', color='red')
+    
+    plt.xlabel(param_name)
+    plt.ylabel('Dokładność (Accuracy)')
+    plt.title(f'Optymalizacja parametru: {param_name} (Sweet Spot)')
+    plt.legend()
+    plt.grid(True)
+    plt.tight_layout()
+    plt.savefig(PLOTS_DIR / f'tree_regularization_{param_name}.png')
+    plt.close()
